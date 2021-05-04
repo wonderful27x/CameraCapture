@@ -307,7 +307,7 @@ public class CameraActivity extends AppCompatActivity {
     }
 
 
-    // =============================================权限申请================================================
+    // =============================================权限申请====================================================
     private List<String> checkPermission(String... permissions) {
         List<String> list = null;
         for (String permission:permissions){
