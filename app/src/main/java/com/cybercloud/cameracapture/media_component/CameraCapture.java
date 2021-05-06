@@ -673,7 +673,7 @@ public class CameraCapture implements MediaControlInterface {
         }
 
         if(syncLock == null){
-            syncLock = new ConditionSyncLock();
+            syncLock = new ConditionSyncLock(false);
         }
 
         if(executorService == null){

@@ -19,11 +19,15 @@ public class ConditionSyncLock {
     private final HashMap<String, Condition> conditionMap;
     private volatile boolean isLock;
 
-    public ConditionSyncLock(){
+    /**
+     * 构造函数
+     * @param ifLock true: 第一次调用lock就会使线程阻塞 false: 第一次调用lock会获取锁然后直接返回,线程不会阻塞
+     */
+    public ConditionSyncLock(boolean ifLock){
         lock = new ReentrantLock();
         conditionMap = new HashMap<>();
         conditionMap.put(getClass().getName(),lock.newCondition());
-        isLock = false;
+        isLock = ifLock;
     }
 
     /**
